@@ -72,7 +72,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	angular.module('myApp', ['ngResource', 'ngRoute' /*,  'server'/*, 'server-cache'*/]).config(_routes2.default).controller('MainCtrl', _Main2.default).controller('TodoCtrl', _Todo2.default).controller('ErrorCtrl', _Error2.default).service('ProductService', _Products2.default).directive('productList', _ProductList2.default).run(function ($log) {
+	angular.module('myApp', ['ngResource', 'ngRoute', 'server', 'server-cache']).config(_routes2.default).controller('MainCtrl', _Main2.default).controller('TodoCtrl', _Todo2.default).controller('ErrorCtrl', _Error2.default).service('ProductService', _Products2.default).directive('productList', _ProductList2.default).run(function ($log) {
 	        /*$log.log('This should be written in log');
 	        $log.warn('This should be written in warn');
 	        $log.error('This should be written in error');
@@ -110,23 +110,23 @@
 	        throw text;
 	    };
 	
-	    var error1 = 'Catchable Error()';
-	    var error2 = 'Catchable Exception()';
-	    var error3 = 'Uncatchable Error() - should crash the app.';
+	    this.error1 = 'Catchable Error()';
+	    this.error2 = 'Catchable Exception()';
+	    this.error3 = 'Uncatchable Error() - should crash the app.';
 	
-	    $log.log('Will....' + error1);
+	    $log.log('Will....' + this.error1);
 	
 	    try {
-	        this.throwError(error1);
+	        this.throwError(this.error1);
 	    } catch (e1) {
 	        $log.log('I catched an Error/Exception: ' + e1);
 	        try {
-	            $log.log('Will....' + error2);
-	            this.throwException(error2);
+	            $log.log('Will....' + this.error2);
+	            this.throwException(this.error2);
 	        } catch (e2) {
 	            $log.log('I catched an Error/Exception: ' + e2);
-	            $log.log('Will....' + error3);
-	            this.throwException(error3);
+	            $log.log('Will....' + this.error3);
+	            this.throwException(this.error3);
 	        }
 	    }
 	};
