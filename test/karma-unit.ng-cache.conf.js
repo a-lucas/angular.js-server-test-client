@@ -14,11 +14,13 @@ module.exports = function(config) {
     conf.browsers = ['Chrome_travis_ci'];
   }
 
-  conf.preprocessors['dist/app.js'] = ['coverage'];
-  conf.coverageReporter.subdir =  'default';
+  conf.preprocessors['dist/app-ng-cache.js'] = ['coverage'];
+
+  conf.coverageReporter.subdir =  'ng-cache';
+
   conf.files = conf.files.concat([
     //App-specific Code
-    'dist/app.js'
+    'dist/app-ng-cache.js'
   ]);
 
   config.set(conf);

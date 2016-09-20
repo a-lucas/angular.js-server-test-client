@@ -4,15 +4,8 @@ describe("Unit: Testing Service", function() {
         module('myApp');
     });
 
-    var backendMock = [
-        {
-            name: 'test',
-            price: 1
-        },
-        {
-            name: 'test2',
-            price: 2
-        }];
+    var backendMock = window.__json__['test/unit/mock/backend.json'];
+
     var productService, $httpBackend;
 
 
@@ -20,8 +13,6 @@ describe("Unit: Testing Service", function() {
         $httpBackend = _$httpBackend_;
         productService = ProductService;
     }));
-
-
 
     afterEach(function () {
         $httpBackend.verifyNoOutstandingExpectation();
@@ -32,9 +23,6 @@ describe("Unit: Testing Service", function() {
         expect(productService).not.to.equal(null);
     });
 
-
-
-
     it('Should get the correct Data', function() {
 
         $httpBackend
@@ -42,7 +30,6 @@ describe("Unit: Testing Service", function() {
             .respond(backendMock);
 
         productService.getProducts().then(function(result) {
-            console.log('result = ', result);
             expect(result).to.eql(backendMock);
         });
 

@@ -1,7 +1,7 @@
 {
   "name": "angular.js-server-test-client",
   "description": "This is the source code of the web app used to test angular.js-server.",
-  "main": ["dist/app.js","dist/app.js.map"],
+  "main": ["dist/app.js","dist/app.js.map", "src/views"],
   "license": "MIT",
   "ignore": [
     "src",

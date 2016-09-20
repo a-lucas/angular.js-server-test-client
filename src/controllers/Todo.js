@@ -4,10 +4,6 @@
 
 export default class TodoCtrl {
 
-    constructor(){
-        console.log('TodoCtrl Loaded', this);
-    }
-
     addTodo = () => {
         this.todos.push({text:this.todoText, done:false});
         this.todoText = '';

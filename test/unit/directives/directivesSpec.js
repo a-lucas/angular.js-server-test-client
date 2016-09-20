@@ -3,21 +3,11 @@
 //
 describe("Unit: Testing Directives", function () {
 
-    var $compile, $rootScope;
-
     beforeEach(angular.mock.module('myApp'));
 
-    var backendMock = [
-        {
-            name: 'test',
-            price: 1
-        },
-        {
-            name: 'test2',
-            price: 2
-        }];
-    var productService, $httpBackend, $compile, $rootScope;
+    var backendMock = window.__json__['test/unit/mock/backend.json'];
 
+    var $httpBackend, $compile, $rootScope;
 
     beforeEach(inject(function (ProductService, _$httpBackend_, _$compile_, _$rootScope_) {
         $httpBackend = _$httpBackend_;
