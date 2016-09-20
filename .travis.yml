@@ -25,5 +25,4 @@ notifications:
     on_success: never
     on_failure: always
 after_success:
-  - npm run codecov-default
-  - npm run codecov-ng-cache
+  - npm run codecov

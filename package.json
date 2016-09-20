@@ -5,8 +5,7 @@
     "bower": "./node_modules/.bin/bower install",
     "build": "./node_modules/.bin/webpack && ./node_modules/.bin/webpack --config webpack.config.ng-cache.js",
     "test": "./node_modules/.bin/karma start test/karma-unit.conf.js --single-run && ./node_modules/.bin/karma start test/karma-unit.ng-cache.conf.js --single-run",
-    "codecov-default": "./node_modules/.bin/codecov --file ./coverage/default/lcov.info",
-    "codecov-ng-cache": "./node_modules/.bin/codecov --file ./coverage/ng-cache/lcov.info"
+    "codecov": "./node_modules/.bin/codecov"
   },
   "pre-commit": [
     "bower",
