@@ -5,7 +5,7 @@ import Routes from './routes';
 import Products from './services/Products';
 import ProductList from './directives/ProductList';
 
-angular.module('myApp', ['ngResource', 'ngRoute' ,  'server'])
+angular.module('myApp', ['ngResource', 'ngRoute' ,  'server', 'server-cache'])
     .config(Routes)
     .controller('MainCtrl', MainCtrl)
     .controller('TodoCtrl', TodoCtrl)

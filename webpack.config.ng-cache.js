@@ -3,9 +3,9 @@ var path = require('path');
 var fs = require('fs');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: './src/app-ng-cache.js',
     output: {
-        filename: 'dist/app.js'
+        filename: 'dist/app-ng-cache.js'
     },
     resolve: {
         extensions: ['', '.webpack.js', '.js']

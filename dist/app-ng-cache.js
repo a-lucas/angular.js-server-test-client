@@ -72,7 +72,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	angular.module('myApp', ['ngResource', 'ngRoute', 'server']).config(_routes2.default).controller('MainCtrl', _Main2.default).controller('TodoCtrl', _Todo2.default).controller('ErrorCtrl', _Error2.default).service('ProductService', _Products2.default).directive('productList', _ProductList2.default).run(function ($log) {
+	angular.module('myApp', ['ngResource', 'ngRoute', 'server', 'server-cache']).config(_routes2.default).controller('MainCtrl', _Main2.default).controller('TodoCtrl', _Todo2.default).controller('ErrorCtrl', _Error2.default).service('ProductService', _Products2.default).directive('productList', _ProductList2.default).run(function ($log) {
 	        /*$log.log('This should be written in log');
 	        $log.warn('This should be written in warn');
 	        $log.error('This should be written in error');
@@ -358,4 +358,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=app-ng-cache.js.map
