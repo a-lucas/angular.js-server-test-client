@@ -1,10 +1,21 @@
 {
   "name": "angular.js-server-test-client",
   "description": "This is the source code of the web app used to test angular.js-server.",
-  "main": ["dist/app.js","dist/app.js.map", "src/views"],
+  "main": [
+    "dist/app.js",
+    "dist/app.js.map",
+    "dist/app-ng-cache.js",
+    "dist/app-ng-cache.js.map",
+    "src/views/error.html",
+    "src/views/products.html",
+    "src/views/todos.html"
+  ],
   "license": "MIT",
   "ignore": [
-    "src",
+    "src/controllers",
+    "src/directives",
+    "src/services",
+    "src/*.js",
     "test",
     ".travis.yml",
     "webpack.config.js",
