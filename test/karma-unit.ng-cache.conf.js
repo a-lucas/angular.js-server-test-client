@@ -19,7 +19,7 @@ module.exports = function(config) {
   conf.coverageReporter.subdir =  'ng-cache';
 
   conf.files = conf.files.concat([
-    //App-specific Code
+    'bower_components/angular.js-server-ng-cache/dist/angular.js-server-ng-cache.js',
     'dist/app-ng-cache.js'
   ]);
 

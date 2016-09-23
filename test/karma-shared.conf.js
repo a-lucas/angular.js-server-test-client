@@ -19,8 +19,8 @@ module.exports = function () {
             'bower_components/angular/angular.js',
             'bower_components/angular-route/angular-route.js',
             'bower_components/angular-resource/angular-resource.js',
-            'bower_components/angular.js-server/dest/angular.js-server.js',
-            'bower_components/angular.js-server-ng-cache/dist/angular.js-server-ng-cache.js',
+            'bower_components/angular.js-server/dist/angular.js-server.js',
+            //'bower_components/angular.js-server-ng-cache/dist/angular.js-server-ng-cache.js',
             'bower_components/angular-mocks/angular-mocks.js',
             //json
             'test/unit/mock/backend.json',
