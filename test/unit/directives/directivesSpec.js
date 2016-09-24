@@ -7,24 +7,29 @@ describe("Unit: Testing Directives", function () {
 
     var backendMock = window.__json__['test/unit/mock/backend.json'];
 
-    var $httpBackend, $compile, $rootScope;
+    var $httpBackend, $compile, $rootScope, $timeout;
 
-    beforeEach(inject(function (ProductService, _$httpBackend_, _$compile_, _$rootScope_) {
+    beforeEach(inject(function (ProductService, _$timeout_, _$httpBackend_, _$compile_, _$rootScope_) {
         $httpBackend = _$httpBackend_;
         $rootScope = _$rootScope_;
         $compile = _$compile_;
+        $timeout = _$timeout_;
+
     }));
 
 
     afterEach(function () {
         $httpBackend.verifyNoOutstandingExpectation();
         $httpBackend.verifyNoOutstandingRequest();
+        delete window.appTestDelay;
     });
 
-    it('Should get the correct Data', function() {
+    it('Should get the correct Data after 500ms', function() {
+
+        window.appTestDelay = 500;
 
         $httpBackend
-            .when('GET', 'http://127.0.0.1:8080/products')
+            .when('GET', 'http://127.0.0.1:8080/products/'+ window.appTestDelay)
             .respond(backendMock);
 
         element = angular.element('<product-list></product-list>');
@@ -33,8 +38,11 @@ describe("Unit: Testing Directives", function () {
         expect($rootScope.loading).to.be.ok;
         expect($rootScope.products).to.be.undefined;
 
-        $httpBackend.flush();
-        $rootScope.$digest();
+        $timeout(function() {
+            $httpBackend.flush();
+        }, window.appTestDelay);
+
+        $timeout.flush(window.appTestDelay);
 
         expect($rootScope.loading).to.be.not.ok;
 

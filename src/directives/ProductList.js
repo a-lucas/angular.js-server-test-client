@@ -7,6 +7,7 @@ export default function(ProductService) {
         link: function (scope, element, attrs) {
             scope.loading = true;
 
+
             ProductService.getProducts().then((products) => {
                 scope.products = products;
                 scope.loading = false;
