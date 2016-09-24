@@ -4,14 +4,12 @@
 
 class MainCtrl {
     constructor($log){
-
         $log.log('I am a log', 'with two parameters');
         $log.warn('I am a warn');
         $log.info('I am an info');
-        /*$log.error('I am error with an object', {
+        $log.error('I am error with an object', {
             name: 'value'
-        });*/
-
+        });
 
     }
 

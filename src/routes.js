@@ -18,6 +18,12 @@ export default function($routeProvider, $locationProvider, $sceProvider) {
         controllerAs: 'vm'
     });
 
+    $routeProvider.when('/Main/:time', {
+        templateUrl: '/views/products.html',
+        controller: MainCtrl,
+        controllerAs: 'vm'
+    });
+
     $routeProvider.when('/Todo', {
         templateUrl: '/views/todos.html',
         controller: TodoCtrl,

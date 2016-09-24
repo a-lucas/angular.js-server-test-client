@@ -3,8 +3,8 @@
   "author": "Antoine LUCAS <antoine.lucas.australia@gmail.com>",
   "scripts": {
     "bower": "./node_modules/.bin/bower install",
-    "build": "./node_modules/.bin/webpack && ./node_modules/.bin/webpack --config webpack.config.ng-cache.js",
-    "test": "./node_modules/.bin/karma start test/karma-unit.conf.js --single-run && ./node_modules/.bin/karma start test/karma-unit.ng-cache.conf.js --single-run",
+    "build": "./node_modules/.bin/webpack",
+    "test": "./node_modules/.bin/karma start test/karma-unit.conf.js --single-run",
     "codecov": "./node_modules/.bin/codecov"
   },
   "pre-commit": [

@@ -180,9 +180,9 @@
 	    $log.log('I am a log', 'with two parameters');
 	    $log.warn('I am a warn');
 	    $log.info('I am an info');
-	    /*$log.error('I am error with an object', {
+	    $log.error('I am error with an object', {
 	        name: 'value'
-	    });*/
+	    });
 	};
 	
 	exports.default = MainCtrl;
@@ -239,6 +239,12 @@
 	    $sceProvider.enabled(false);
 	
 	    $routeProvider.when('/Main', {
+	        templateUrl: '/views/products.html',
+	        controller: _Main2.default,
+	        controllerAs: 'vm'
+	    });
+	
+	    $routeProvider.when('/Main/:time', {
 	        templateUrl: '/views/products.html',
 	        controller: _Main2.default,
 	        controllerAs: 'vm'
@@ -307,12 +313,6 @@
 	
 	    this.getProducts = function (time) {
 	
-	        if (!time && typeof _this._$window['appTestDelay'] === 'undefined') {
-	            throw new Error('Please set the global window.apptestDelay');
-	        }
-	
-	        time = time ? time : _this._$window['appTestDelay'];
-	
 	        var defer = _this._$q.defer();
 	
 	        if (_this.products !== null) {
@@ -345,7 +345,7 @@
 	    value: true
 	});
 	
-	exports.default = function (ProductService) {
+	exports.default = function ($routeParams, ProductService) {
 	    return {
 	        restrict: 'E',
 	        replace: true,
@@ -353,8 +353,9 @@
 	        template: '<div><span ng-show="loading">loading products</span> <li ng-repeat="product in products">{{product.name}} {{product.price}}</li></div>',
 	        link: function link(scope, element, attrs) {
 	            scope.loading = true;
+	            scope.time = $routeParams.time ? $routeParams.time : 2000;
 	
-	            ProductService.getProducts().then(function (products) {
+	            ProductService.getProducts(scope.time).then(function (products) {
 	                scope.products = products;
 	                scope.loading = false;
 	            });

@@ -34,7 +34,6 @@
     "angular-resource": "^1.5.8",
     "angular-route": "^1.5.8",
     "angular-mocks": "^1.5.8",
-    "angular.js-server": "latest",
-    "angular.js-server-ng-cache": "latest"
+    "angular.js-server": "latest"
   }
 }

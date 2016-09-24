@@ -9,12 +9,6 @@ export default class Products {
 
     getProducts = (time) => {
 
-        if(!time && typeof this._$window['appTestDelay'] === 'undefined') {
-            throw new Error('Please set the global window.apptestDelay');
-        }
-
-        time = time ? time : this._$window['appTestDelay'];
-
         var defer = this._$q.defer();
 
         if (this.products !== null) {
