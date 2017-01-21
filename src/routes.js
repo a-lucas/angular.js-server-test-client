@@ -4,6 +4,7 @@
 import MainCtrl from './controllers/Main';
 import TodoCtrl from './controllers/Todo';
 import ErrorCtrl from './controllers/Error';
+import FormCtrl from './controllers/Form';
 
 //import {InjectServer} from '../angular/server';
 
@@ -34,6 +35,12 @@ export default function($routeProvider, $locationProvider, $sceProvider) {
     $routeProvider.when('/Error', {
         templateUrl: '/views/error.html',
         controller: ErrorCtrl,
+        controllerAs: 'vm'
+    });
+
+    $routeProvider.when('/Form', {
+        templateUrl: '/views/form.html',
+        controller: FormCtrl,
         controllerAs: 'vm'
     });
 

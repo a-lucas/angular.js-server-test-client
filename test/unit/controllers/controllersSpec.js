@@ -10,7 +10,7 @@ describe("Unit: Testing Controllers", function () {
     beforeEach(inject(function (_$rootScope_, _$controller_, _$log_) {
         $controller = _$controller_;
         $scope = _$rootScope_;
-        $log = $log;
+        $log = _$log_;
     }));
 
     describe('MainCtrl', function() {
@@ -18,6 +18,21 @@ describe("Unit: Testing Controllers", function () {
             var MainCtrl = $controller('MainCtrl', [$log]);
             expect(MainCtrl.title).to.eql('Angular Es6 revisited');
         });
+    });
+
+    describe('FormCtrl', function() {
+        it('should have a FormCtrl controller', function () {
+            var FormCtrl = $controller('FormCtrl', []);
+            expect(FormCtrl.formModel.username).to.eql('');
+        });
+
+        it('Submite should set submitted to true', function () {
+            var FormCtrl = $controller('FormCtrl', []);
+            expect(FormCtrl.submitted).to.eql(false);
+            FormCtrl.submitForm();
+            expect(FormCtrl.submitted).to.eql(true);
+        });
+        
     });
 
     describe('Todo Ctrl Test', function() {
@@ -46,4 +61,6 @@ describe("Unit: Testing Controllers", function () {
             }
         });
     });
+
+
 });

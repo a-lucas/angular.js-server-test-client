@@ -62,17 +62,21 @@
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	var _Products = __webpack_require__(6);
+	var _Products = __webpack_require__(7);
 	
 	var _Products2 = _interopRequireDefault(_Products);
 	
-	var _ProductList = __webpack_require__(7);
+	var _ProductList = __webpack_require__(8);
 	
 	var _ProductList2 = _interopRequireDefault(_ProductList);
 	
+	var _Form = __webpack_require__(6);
+	
+	var _Form2 = _interopRequireDefault(_Form);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	angular.module('myApp', ['ngResource', 'ngRoute', 'server']).config(_routes2.default).controller('MainCtrl', _Main2.default).controller('TodoCtrl', _Todo2.default).controller('ErrorCtrl', _Error2.default).service('ProductService', _Products2.default).directive('productList', _ProductList2.default).run(function ($log) {
+	angular.module('myApp', ['ngResource', 'ngRoute', 'server']).config(_routes2.default).controller('MainCtrl', _Main2.default).controller('TodoCtrl', _Todo2.default).controller('ErrorCtrl', _Error2.default).controller('FormCtrl', _Form2.default).service('ProductService', _Products2.default).directive('productList', _ProductList2.default).run(function ($log) {
 	        /*$log.log('This should be written in log');
 	        $log.warn('This should be written in warn');
 	        $log.error('This should be written in error');
@@ -263,6 +267,12 @@
 	        controllerAs: 'vm'
 	    });
 	
+	    $routeProvider.when('/Form', {
+	        templateUrl: '/views/form.html',
+	        controller: _Form2.default,
+	        controllerAs: 'vm'
+	    });
+	
 	    $routeProvider.otherwise('/Main');
 	
 	    $locationProvider.html5Mode(true);
@@ -280,17 +290,55 @@
 	
 	var _Error2 = _interopRequireDefault(_Error);
 	
+	var _Form = __webpack_require__(6);
+	
+	var _Form2 = _interopRequireDefault(_Form);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	;
+	
+	//import {InjectServer} from '../angular/server';
+	
 	
 	/**
 	 * Created by antoine on 9/02/16.
 	 */
-	;
-	
-	//import {InjectServer} from '../angular/server';
 
 /***/ },
 /* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _classCallCheck2 = __webpack_require__(2);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var FormCtrl = function FormCtrl($log) {
+	    var _this = this;
+	
+	    (0, _classCallCheck3.default)(this, FormCtrl);
+	    this.formModel = {
+	        username: ''
+	    };
+	    this.submitted = false;
+	
+	    this.submitForm = function () {
+	        _this.submitted = true;
+	    };
+	};
+	
+	exports.default = FormCtrl;
+
+/***/ },
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -337,7 +385,7 @@
 	exports.default = Products;
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports) {
 
 	'use strict';

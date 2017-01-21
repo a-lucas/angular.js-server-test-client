@@ -1,0 +1,15 @@
+<form name="form"
+      ng-submit="vm.submitForm()">
+
+    <input type="text"
+           name="username"
+           id="username"
+           ng-model="vm.formModel.username"
+           ng-required="true"
+           ng-disabled="vm.submitted"/>
+
+    <button type="submit"
+            ng-disabled="vm.submitted">
+        Send
+    <button>
+</form>
