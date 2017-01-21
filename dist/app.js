@@ -76,13 +76,23 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	angular.module('myApp', ['ngResource', 'ngRoute', 'server']).config(_routes2.default).controller('MainCtrl', _Main2.default).controller('TodoCtrl', _Todo2.default).controller('ErrorCtrl', _Error2.default).controller('FormCtrl', _Form2.default).service('ProductService', _Products2.default).directive('productList', _ProductList2.default).run(function ($log) {
+	var boot = function boot() {
+	    angular.module('myApp', ['ngResource', 'ngRoute', 'server']).config(_routes2.default).controller('MainCtrl', _Main2.default).controller('TodoCtrl', _Todo2.default).controller('ErrorCtrl', _Error2.default).controller('FormCtrl', _Form2.default).service('ProductService', _Products2.default).directive('productList', _ProductList2.default).run(function ($log) {
 	        /*$log.log('This should be written in log');
-	        $log.warn('This should be written in warn');
-	        $log.error('This should be written in error');
-	        $log.debug('This should be written in debug');
-	        $log.info('This should be written in info');*/
-	});
+	         $log.warn('This should be written in warn');
+	         $log.error('This should be written in error');
+	         $log.debug('This should be written in debug');
+	         $log.info('This should be written in info');*/
+	    });
+	};
+	
+	if (typeof window['preboot'] !== 'undefined') {
+	    setTimeout(function () {
+	        boot();
+	    }, 1000);
+	} else {
+	    boot();
+	}
 
 /***/ },
 /* 1 */
@@ -321,7 +331,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var FormCtrl = function FormCtrl($log) {
+	var FormCtrl = function FormCtrl() {
 	    var _this = this;
 	
 	    (0, _classCallCheck3.default)(this, FormCtrl);
