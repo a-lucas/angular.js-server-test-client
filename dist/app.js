@@ -363,7 +363,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Products = function Products($q, $http, $window) {
+	var Products = function Products($q, $http) {
 	    'ngInject';
 	
 	    var _this = this;
@@ -378,8 +378,8 @@
 	            defer.resolve(_this.products);
 	            return defer.promise;
 	        } else {
-	            _this._$http.get('http://127.0.0.1:8080/products/' + time).success(function (data) {
-	                _this.products = data;
+	            _this._$http.get('http://127.0.0.1:8080/products/' + time).then(function (data) {
+	                _this.products = data.data;
 	                defer.resolve(_this.products);
 	            });
 	        }
@@ -388,7 +388,6 @@
 	
 	    this._$http = $http;
 	    this._$q = $q;
-	    this._$window = $window;
 	    this.products = null;
 	};
 	

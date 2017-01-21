@@ -1,9 +1,8 @@
 export default class Products {
-    constructor($q, $http, $window) {
+    constructor($q, $http) {
         'ngInject';
         this._$http = $http;
         this._$q = $q;
-        this._$window = $window;
         this.products = null
     }
 
@@ -15,8 +14,8 @@ export default class Products {
             defer.resolve(this.products);
             return defer.promise;
         } else {
-            this._$http.get('http://127.0.0.1:8080/products/' + time).success( (data) => {
-                this.products = data;
+            this._$http.get('http://127.0.0.1:8080/products/' + time).then( (data) => {
+                this.products = data.data;
                 defer.resolve(this.products);
             });
         }
